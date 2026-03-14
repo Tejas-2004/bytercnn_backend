@@ -6,7 +6,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from typing import Optional
 
-from .model import load_model, predict_file
+try:
+    from .model import load_model, predict_file
+except ImportError:
+    from model import load_model, predict_file
 
 MAX_FILE_SIZE = 100 * 1024 * 1024  # 100MB
 
