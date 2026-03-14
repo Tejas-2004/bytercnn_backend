@@ -24,7 +24,13 @@ app = FastAPI(title="ByteRCNN File Fragment Classifier", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:5174", "http://localhost:5175"],
+    allow_origins=[
+        "http://localhost:5173",
+        "http://localhost:5174",
+        "http://localhost:5175",
+        "https://bytercnnbackend-production.up.railway.app",
+    ],
+    allow_origin_regex=r"https://.*\.netlify\.app",
     allow_methods=["*"],
     allow_headers=["*"],
 )
